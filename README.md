@@ -2,7 +2,7 @@
 
 K8Tool (*formerly K8-LRT*) is a Windows tool for removing libraries from the Bobdule version of Kontakt 8. It's written in C++20 and built on [XenUI](https://github.com/jakerieger/XenUI).
 
-![](Docs/screenshot.png)
+![](docs/screenshot.png)
 
 K8Tool completely removes Kontakt libraries from the cache on disk. Native Instruments stores cache files in several different locations and this tool ensures they're all checked and removed.
 
