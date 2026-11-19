@@ -1,0 +1,91 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Debug",
+      "displayName": "Debug",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "Release",
+      "displayName": "Release",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "Debug-LocalXenUI",
+      "displayName": "Debug (local XenUI)",
+      "description": "Builds against the XenUI checkout next to this one instead of fetching it",
+      "inherits": "Debug",
+      "cacheVariables": {
+        "K8TOOL_XENUI_DIR": "${sourceParentDir}/XenUI"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Debug",
+      "configurePreset": "Debug"
+    },
+    {
+      "name": "Release",
+      "configurePreset": "Release"
+    },
+    {
+      "name": "Debug-LocalXenUI",
+      "configurePreset": "Debug-LocalXenUI"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "Debug",
+      "configurePreset": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "Release",
+      "configurePreset": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "Debug-LocalXenUI",
+      "configurePreset": "Debug-LocalXenUI",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

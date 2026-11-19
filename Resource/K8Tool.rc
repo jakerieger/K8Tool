@@ -1,0 +1,8 @@
+#include "Resource.h"
+
+IDI_K8TOOL ICON "icon.ico"
+
+#define K8TOOL_FILE_DESCRIPTION  "K8Tool"
+#define K8TOOL_ORIGINAL_FILENAME "K8Tool.exe"
+#define K8TOOL_FILE_TYPE         VFT_APP
+#include "VersionInfo.rc"

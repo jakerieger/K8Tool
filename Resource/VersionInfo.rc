@@ -1,0 +1,35 @@
+#include <winver.h>
+#include "K8ToolVersion.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION    K8TOOL_VERSION_MAJOR, K8TOOL_VERSION_MINOR, K8TOOL_VERSION_PATCH, 0
+ PRODUCTVERSION K8TOOL_VERSION_MAJOR, K8TOOL_VERSION_MINOR, K8TOOL_VERSION_PATCH, 0
+ FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+ FILEFLAGS      VS_FF_DEBUG
+#else
+ FILEFLAGS      0
+#endif
+ FILEOS         VOS_NT_WINDOWS32
+ FILETYPE       K8TOOL_FILE_TYPE
+ FILESUBTYPE    VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "Jake Rieger"
+            VALUE "FileDescription",  K8TOOL_FILE_DESCRIPTION
+            VALUE "FileVersion",      K8TOOL_VERSION_STRING
+            VALUE "InternalName",     K8TOOL_ORIGINAL_FILENAME
+            VALUE "LegalCopyright",   "Copyright (C) 2026 Jake Rieger"
+            VALUE "OriginalFilename", K8TOOL_ORIGINAL_FILENAME
+            VALUE "ProductName",      "K8Tool"
+            VALUE "ProductVersion",   K8TOOL_VERSION_STRING
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
